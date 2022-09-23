@@ -3,6 +3,9 @@
 }
 
 .news-grid {
+	grid-template-columns: auto auto auto;
+	column-gap: 20px;
+	row-gap: 20px;
 	padding-top: 20px;
 }
 
