@@ -5,6 +5,7 @@ const body = document.querySelector('.body');
 const back = document.querySelector('.back');
 const loadBtn = document.querySelector('.load-btn');
 
+// Load the latest news to the page in order (last 12 news added to the database)
 $(function() {
 	$.ajax({
 		dataType: 'json',
@@ -26,6 +27,7 @@ $(function() {
 	});
 });
 
+// Load the news article when "Read more" button is clicked
 function openPage(id) {
 	$.ajax({
 		dataType: 'json',
@@ -50,13 +52,14 @@ function openPage(id) {
 	body.classList.add('d-none');
 	loadBtn.classList.add('d-none');
 }
-
+// Go back to the main page when the arrow back svg is clicked
 const quit = () => {
 	article.classList.add('d-none');
 	body.classList.remove('d-none');
 	loadBtn.classList.remove('d-none');
 };
 
+// Load all the rest of the news from the database
 loadBtn.addEventListener('click', () => {
 	loadBtn.classList.add('d-none');
 	$.ajax({

@@ -2,6 +2,7 @@
 	padding: 0 8vw;
 }
 
+/* News grid container */
 .news-grid {
 	grid-template-columns: auto auto auto auto;
 	column-gap: 20px;
@@ -9,12 +10,14 @@
 	padding-top: 20px;
 }
 
+/* Image display in the article page */
 .article-img {
 	height: 30vw;
 	width: 100%;
 	object-fit: contain;
 }
 
+/* Back svg in the article page */
 .back {
 	position: absolute;
 	top: 100px;
@@ -33,6 +36,7 @@
 	margin-bottom: 100px;
 }
 
+/* Media queries */
 @media screen and (max-width: 1350px) {
 	.news-grid {
 		grid-template-columns: auto auto auto;
