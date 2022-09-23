@@ -3,6 +3,7 @@ const newsElement = document.querySelectorAll('.new-items');
 const article = document.querySelector('.article');
 const body = document.querySelector('.body');
 const back = document.querySelector('.back');
+const loadBtn = document.querySelector('.load-btn');
 
 $(function() {
 	$.ajax({
@@ -16,7 +17,7 @@ $(function() {
                 <div class="card-body">
                   <h5 class="card-title">${data[i].title}</h5>
                   <p class="card-text">${data[i].subtitle}</p>
-                  <a href="#" class="news-items btn btn-warning" id=${data[i].id} onclick="openPage(${data[i]
+                  <a href="#" class="news-items btn btn-info" id=${data[i].id} onclick="openPage(${data[i]
 					.id})">Read more</a>
                 </div>
             </div>`;
@@ -47,9 +48,33 @@ function openPage(id) {
 	});
 	article.classList.remove('d-none');
 	body.classList.add('d-none');
+	loadBtn.classList.add('d-none');
 }
 
 const quit = () => {
 	article.classList.add('d-none');
 	body.classList.remove('d-none');
+	loadBtn.classList.remove('d-none');
 };
+
+loadBtn.addEventListener('click', () => {
+	loadBtn.classList.add('d-none');
+	$.ajax({
+		dataType: 'json',
+		type: 'GET',
+		url: 'http://localhost/news-website-backend/load-more.php',
+		success: function(data) {
+			for (let i in data) {
+				newsGrid.innerHTML += `<div class="card" style="width: 18rem;">
+                <img src="${data[i].image_url}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">${data[i].title}</h5>
+                  <p class="card-text">${data[i].subtitle}</p>
+                  <a href="#" class="news-items btn btn-info" id=${data[i].id} onclick="openPage(${data[i]
+					.id})">Read more</a>
+                </div>
+            </div>`;
+			}
+		}
+	});
+});
