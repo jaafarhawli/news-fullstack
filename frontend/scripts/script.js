@@ -16,7 +16,7 @@ $(function() {
 				newsGrid.innerHTML += `<div class="card" style="width: 18rem;">
                 <img src="${data[i].image_url}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">${data[i].title}</h5>
+                  <h5 class="card-title text-info">${data[i].title}</h5>
                   <p class="card-text">${data[i].subtitle}</p>
                   <a href="#" class="news-items btn btn-info" id=${data[i].id} onclick="openPage(${data[i]
 					.id})">Read more</a>
@@ -39,7 +39,7 @@ function openPage(id) {
             arrow_back
             </span>
             <img src="${data[0].image_url}" alt="..." class="article-img pt-4">
-            <h1 class="pt-3">
+            <h1 class="pt-3 text-info">
                 ${data[0].title}
             </h1>
             <p class="fw-bold fs-5">By: ${data[0].author}</p>
@@ -71,7 +71,7 @@ loadBtn.addEventListener('click', () => {
 				newsGrid.innerHTML += `<div class="card" style="width: 18rem;">
                 <img src="${data[i].image_url}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">${data[i].title}</h5>
+                  <h5 class="card-title text-info">${data[i].title}</h5>
                   <p class="card-text">${data[i].subtitle}</p>
                   <a href="#" class="news-items btn btn-info" id=${data[i].id} onclick="openPage(${data[i]
 					.id})">Read more</a>
