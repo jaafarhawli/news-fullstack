@@ -2,6 +2,7 @@ const newsGrid = document.getElementById('newsGrid');
 const newsElement = document.querySelectorAll('.new-items');
 const article = document.querySelector('.article');
 const body = document.querySelector('.body');
+const back = document.querySelector('.back');
 
 $(function() {
 	$.ajax({
@@ -34,7 +35,11 @@ function openPage(id) {
 		type: 'GET',
 		url: `http://localhost/news-website-backend/view-article.php?id=${id}`,
 		success: function(data) {
-			article.innerHTML = `<img src="${data[0].image_url}" alt="..." class="article-img pt-4">
+			article.innerHTML = `
+            <span class="material-symbols-outlined back" onclick="quit()">
+            arrow_back
+            </span>
+            <img src="${data[0].image_url}" alt="..." class="article-img pt-4">
             <h1 class="pt-3">
                 ${data[0].title}
             </h1>
@@ -47,6 +52,10 @@ function openPage(id) {
 	body.classList.add('d-none');
 }
 
+const quit = () => {
+	article.classList.add('d-none');
+	body.classList.remove('d-none');
+};
 /* newsElement.forEach((card) => card.addEventListener('click', openPage));
 
 function openPage() {

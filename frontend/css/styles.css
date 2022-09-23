@@ -14,3 +14,11 @@
 	width: 100%;
 	object-fit: contain;
 }
+
+.back {
+	position: absolute;
+	top: 100px;
+	left: 20px;
+	cursor: pointer;
+	user-select: none;
+}
