@@ -5,7 +5,7 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
-$query = $mysqli->prepare("SELECT id, image_url, title, content FROM news");
+$query = $mysqli->prepare("SELECT id, image_url, title, content, subtitle FROM news");
 $query->execute();
 $array = $query->get_result();
 
